@@ -1,0 +1,248 @@
+﻿@charset "UTF-8";
+/*
+ * layout.css
+ *
+ * Default CSS Manifest modified from Snook's
+ * Scalable and Modular Architecture for CSS
+ * http://smacss.com/book/
+ */
+
+/* ===============================================================================================
+   LAYOUT  - How the page is divided into sections including headers, footers, sidebars...
+             example: screen-width:1024/16px : @media only screen and (min-width: 64em) { }
+   ============================================================================================ */
+
+
+html { overflow-x: hidden; overflow-y: scroll;
+} html.locked {
+  position: fixed;
+  top: 0; right: 0; bottom: 0; left: 0;
+} /* screen-height:640/16px and screen-width:1024/16px */
+@media only screen and (min-height: 40em) and (min-width: 64em) {
+  html.locked { position: static; }
+}
+
+body {
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto; padding: .01rem 0;
+  min-width: 20rem;
+}
+body > * { padding: .01rem 0; }
+
+
+#lightbox { display: none;
+} #lightbox.locked, #lightbox:target {
+  display: block;
+  z-index: 900;
+  position: fixed;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background-color: rgba(0,0,0,.75);
+}
+
+
+#internal {
+  z-index: 1;/*-1;*/
+  position: relative;
+  padding: 0;
+  overflow: hidden;
+  background-color: green; /*inherit;*/
+    height: 0;
+} /*.no-js #internal {
+  opacity: 0;
+}*/ #internal:target {
+    /* (100vh) - body>header{height}(5rem) */
+    height: calc(100vh - 5rem);
+} /* screen-height:640/16px and screen-width:800/16px */
+@media only screen and (min-height: 40em) and (min-width: 50em) {
+  #internal:target {
+    /* (100vh) - body>header{height}(7.5rem) */
+    height: calc(100vh - 7.5rem);
+  }
+}
+
+.no-js #internal:target + header + main > *:not(header),
+.no-js #internal:target + header + main > * > a:first-child,
+.no-js #internal:target + header + main ~ * {
+  display: none;
+}
+
+body > header {
+  z-index: 2;
+  position: relative;
+  padding: 0 .6rem 0 0;
+    height: 5rem; margin-bottom: -5rem;
+} body.search-locked > header {
+  z-index: 4;
+} /* screen-height:640/16px and screen-width:768/16px */
+@media only screen and (min-height: 40em) and (min-width: 48em) {
+  body > header {
+    padding: .75rem .6rem .5rem 1.875rem; margin-bottom: -6.25rem;
+  }
+} /* screen-height:640/16px and screen-width:1024/16px */
+@media only screen and (min-height: 40em) and (min-width: 64em) {
+  body > header {
+    height: 6.25rem;
+    margin-bottom: -7.5rem;
+    padding-right: 2.35rem;
+  }
+}
+
+main > * { position: relative; padding: 3.125rem 0; }
+main > div, main > article { text-align: center; padding: 0; }
+
+main > header,
+main > section,
+main > footer,
+#useful-links,
+main > footer,
+body > footer {
+  width: 94%; max-width: 75rem;
+  margin: 0 auto;
+} body > footer {
+  padding: 1.75rem 0 2rem;
+}
+
+main > *:before {
+  position: absolute; z-index: -1;
+  top: 0; bottom: 0;
+  content: '';
+  height: 100%;
+  margin: 0 -600rem; padding: 0 600rem;
+  background-color: inherit;
+}
+
+main > div  {
+  margin-bottom: -.5rem;
+  background-color: inherit;
+  text-space-collapse: collapse;
+}
+main > div > article {
+  vertical-align: top;
+  display: inline-block;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-align: center;
+  margin: 0 .125rem .5rem; padding: 1rem;
+    width: 94%;
+} /* screen-width:768/16px */
+@media only screen and (min-width: 48em) {
+  main > div > article {
+    width: calc(50% - .75rem);
+  } main > div > article:nth-last-of-type(1):nth-of-type(odd) {
+    width: calc(100% - 1rem);
+  }
+}
+
+
+main { min-height: 7rem;
+  z-index: 1;
+  position: relative;
+  box-shadow: 0 -.5rem .5rem 0 rgba(0,0,0,.5);
+} /* screen-height:640/16px and screen-width:786/16px */
+@media only screen and (min-height: 40em) and (min-width: 48em) {
+
+  main {
+    box-shadow: 0 0 1rem .5rem rgba(0,0,0,.5);
+    margin-bottom: 40rem;
+  } #internal:target + header + main {
+    margin-bottom: 0;
+  }
+
+  #useful-links, body > footer  {
+    z-index: 0; /* IE Fix */
+    position: fixed; right: 0; left: 0; bottom: 0;
+  } #useful-links {
+    margin-bottom: 14rem;
+  }
+} /* screen-height:640/16px and screen-width:1024/16px */
+@media only screen and (min-height: 40em) and (min-width: 64em) {
+
+  main { margin-bottom: 35rem; }
+  #useful-links { margin-bottom: 10rem; }
+}
+
+#menu {
+  position: absolute;
+  top: 0; right: 0; bottom: auto; left: 0;
+  height: 0;
+  background-color: inherit;
+}
+
+
+/* Back-to-top Link */
+body > a.back-to-top,
+.scroll-top a.back-to-top {
+    display: none;
+} body > a.back-to-top { color: transparent; background-color: rgba(0,0,0,.25);
+  overflow: hidden;
+    display: block;
+  z-index: 2;
+  position: fixed;
+    /* 44px = 2.75rem iPhone touch area fix */
+    bottom: 2.25rem; right: .6rem;
+  width: 0;
+    height: 2.5rem;
+    padding-left: 2.5rem;
+  border-radius: .125rem;
+  background-repeat: no-repeat;
+  background-position: center center;
+    background-image: url(/assets/style/icons/arrow-up.svg);
+} .no-js #menu:target ~ a.back-to-top,
+  body.search-locked > a.back-to-top,
+  body.menu-active > a.back-to-top { 
+    display: block;
+    z-index: 12;
+    top: 1.5rem;
+    padding-left: 1.75rem; margin-right: .375rem;
+    background-color: transparent;
+    background-position: -.375rem 0;
+    background-image: url(/assets/style/icons/close.svg);
+} body.menu-active > a.back-to-top {
+    background-image: url(/assets/style/icons/close-white.svg);
+} body.search-locked > a.back-to-top { background-color: rgb(244,244,244);
+} .no-js #menu:target ~ a.back-to-top { background-color: rgb(217,217,217);
+} /* screen-height:700/16px and screen-width:768/16px */
+@media only screen and (min-height: 40em) and (min-width: 48em) {
+  .no-js #menu:target ~ a.back-to-top,
+  body.search-locked > a.back-to-top,
+  body.menu-active > a.back-to-top {
+    top: 2.25rem;
+  }
+} /* screen-height:640/16px and screen-width:1024/16px */
+@media only screen and (min-height: 40em) and (min-width: 64em) {
+  .scroll-top body > a.back-to-top {
+    display: none;
+  } /*.no-js #menu:target ~ a.back-to-top,*/
+  body.search-locked > a.back-to-top {
+    display: block;
+    background-color: transparent;
+    top: 2.95rem; right: 0;
+  }
+  body.menu-active > a.back-to-top {
+    top: auto; right: .6rem;
+    padding-left: 2.5rem;
+    background-color: rgba(0, 0, 0, 0.25);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-image: url(/assets/style/icons/arrow-up.svg);
+  }
+}
+
+/* FIX: Chat with us */
+.menu-active > #divC4AWButton,
+.no-js #menu:target ~ #divC4AWContainer,
+.menu-active #divC4AWContainer {
+  display: block;
+} /* screen-width:768/16px */
+@media only screen and (max-height: 48em) {
+
+  .scroll-top #internal:target + header + main ~ #divC4AWContainer,
+  .scroll-top #divC4AWButton, .scroll-top #menu:target ~ #divC4AWButton {
+    width: 0; height: 0;
+  }
+}
+#internal:target ~ #divC4AWContainer,
+#internal:target ~ #divC4AWButton {
+    width: 0; height: 0;
+}

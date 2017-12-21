@@ -1,0 +1,68 @@
+﻿/*
+ * [author] SCRATCH
+ *
+ * Default CSS Manifest modified from Snook's
+ * Scalable and Modular Architecture for CSS
+ * http://smacss.com/book/
+ *
+ * NOTE: Each section follows alphabetically in line with Contentsis style ordering.
+ *
+ *  All imported/exported files should follow the naming following naming convention:
+ *    section-subsection
+ *  i.e.
+ *    base.css
+ *    base-form.css
+ *    font.css
+ *    font-solent.css
+ *    layout.css
+ *    layout-navigation.css
+ *    module-icon-list.css
+ *    module-button-link.css
+ *    theme-solent-red.css
+ *    theme-icons.css
+ *    state.css
+ *    state-menu.css
+ *    vendor.css
+ */
+
+/* ===============================================================================================
+   BASE  - Primary HTML elements such as the body, form tags, links...
+   ============================================================================================ */
+
+
+/* ===============================================================================================
+   FONTS   - Typography - imported fonts, font sizes, heading style, line height variations
+   ============================================================================================ */
+
+
+/* ===============================================================================================
+   LAYOUT  - How the page is divided into sections including headers, footers, sidebars...
+             example: screen-width:1024/16px : @media only screen and (min-width: 64em) { }
+   ============================================================================================ */
+
+
+/* ===============================================================================================
+   MODULES - Discrete, reusable, modular components,
+             e.g. navigation bars, product lists, contact forms...
+   ============================================================================================ */
+
+
+
+/* ===============================================================================================
+   THEMES  - Reoccurring colour palate for text, links, buttons and background-images...
+   ============================================================================================ */
+
+body { color: rgb(168, 168, 168); background-color: rgb(51, 55, 60); }
+main { color: rgb(87,87,87); background-color: rgb(255,255,255); }
+
+
+/* ===============================================================================================
+   STATE   - How modules or layouts change when in a specific state,
+             e.g. errors, hidden, expanded, active
+   ============================================================================================ */
+
+
+ /* ===============================================================================================
+   VENDOR - Device specific styles for example accommodating changes in toolbars height.
+   ============================================================================================ */
+

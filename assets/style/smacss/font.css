@@ -1,0 +1,197 @@
+﻿@charset "UTF-8";
+/*
+ * font.css
+ *
+ * Default CSS Manifest modified from Snook's
+ * Scalable and Modular Architecture for CSS
+ * http://smacss.com/book/
+ */
+
+/* ===============================================================================================
+   FONTS   - Typography - imported fonts, font sizes, heading style, variant in line hight...
+   ============================================================================================ */
+
+@font-face {
+  font-family: "Bliss";
+  src: url("../type/bliss/xlight.eot");
+  src: url("../type/bliss/xlight.eot?#iefix") format("embedded-opentype"),
+        url("../type/bliss/xlight.woff2") format("woff2"),
+        url("../type/bliss/xlight.woff") format("woff"),
+        url("../type/bliss/xlight.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Bliss";
+  src: url("../type/bliss/light.eot");
+  src: url("../type/bliss/light.eot?#iefix") format("embedded-opentype"),
+        url("../type/bliss/light.woff2") format("woff2"),
+        url("../type/bliss/light.woff") format("woff"),
+        url("../type/bliss/light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Bliss";
+  src: url("../type/bliss/regular.eot");
+  src: url("../type/bliss/regular.eot?#iefix") format("embedded-opentype"),
+        url("../type/bliss/regular.woff2") format("woff2"),
+        url("../type/bliss/regular.woff") format("woff"),
+        url("../type/bliss/regular.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Bliss";
+  src: url("../type/bliss/bold.eot");
+  src: url("../type/bliss/bold.eot?#iefix") format("embedded-opentype"),
+        url("../type/bliss/bold.woff2") format("woff2"),
+        url("../type/bliss/bold.woff") format("woff"),
+        url("../type/bliss/bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Bliss";
+  src: url("../type/bliss/xbold.eot");
+  src: url("../type/bliss/xbold.eot?#iefix") format("embedded-opentype"),
+        url("../type/bliss/xbold.woff2") format("woff2"),
+        url("../type/bliss/xbold.woff") format("woff"),
+        url("../type/bliss/xbold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Bliss";
+  src: url("../type/bliss/heavy.eot");
+  src: url("../type/bliss/heavy.eot?#iefix") format("embedded-opentype"),
+        url("../type/bliss/heavy.woff2") format("woff2"),
+        url("../type/bliss/heavy.woff") format("woff"),
+        url("../type/bliss/heavy.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Trajan Pro";
+  src: url("../type/trajan/regular.eot");
+  src: url("../type/trajan/regular.eot?#iefix") format("embedded-opentype"),
+        url("../type/trajan/regular.woff2") format("woff2"),
+        url("../type/trajan/regular.woff") format("woff"),
+        url("../type/trajan/regular.ttf") format("truetype");
+}
+
+body {
+  font-family: "Bliss", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+}
+
+
+body > * {
+  line-height: 1.75em;
+    font-size: 1em; /* 16px */
+} /* screen-width:768/16px */
+@media only screen and (min-width: 48rem) {
+  body > * {
+    font-size: 1.125em; /* 18px */
+  }
+}
+
+h1 { font-weight: 300; font-size: 2em; line-height: 1.2em; }
+h2 { font-weight: 300; font-size: 1.5em; line-height: 1.3em; }
+h3 { font-weight: 300; font-size: 1.25em; line-height: 1.2em; }
+h4 { font-weight: 500; font-size: 1em; line-height: 1.35em; }
+h5 { font-weight: 700; font-size: .8em; line-height: 1.5em; }
+h6 { font-weight: 700; font-size: .9em; line-height: 1.5em; }
+
+/* screen-width:768/16px */
+@media only screen and (min-width: 48rem) {
+  h1 { font-size: 3em; }
+}
+
+h1, h2, h5 {
+  text-transform: uppercase;
+  letter-spacing: .225em;
+}
+
+h3.school {
+  font-family: 'Trajan Pro';
+  overflow: visible;
+  font-weight: 500;
+  padding-top: 1em; padding-bottom: .3em;
+  letter-spacing: .15em;
+  margin-top: 0;
+  width: 1rem;
+} p ~ h3.school {
+  width: auto;
+} p + h3.school {
+  padding-top: 1em;
+}
+
+/*h1, h2 { margin-top: 2em; }*/
+h2 { padding-bottom: 1.5em; }
+main > header > h1 + p { margin: 2rem 0; }
+
+main > header { text-align: center; }
+
+main > * > header > h2 { text-align: center; }
+main > * > header > h2:after  {
+  display: block;
+  content: "";
+  width: 2em; height: 0;
+  margin: .5em auto 0;
+  text-align: inherit;
+  color: inherit;
+  border-bottom: solid .125rem;
+  border-bottom-color: rgb(226, 6, 19);
+}
+
+header > p {
+    font-size: 1.1em;
+  font-weight: 700;
+}  /* screen-width:768/16px */
+@media only screen and (min-width: 48rem) {
+  header > p {
+    font-size: 1.5em;
+  }
+} main > header > p {
+  font-weight: 300;
+}
+
+
+footer { text-align: center; }
+
+
+/* screen-width:560/16px */
+@media only screen and (min-width: 35em) {
+  main > section > div {
+    column-gap: 2.25vw;
+    column-count: 2;
+  }
+  main > section > div > h3:first-child {
+    margin-top: 0;
+  }
+} /* screen-width:1280/16px */
+@media only screen and (min-width: 82em) {
+  main > section > div {
+    column-gap: 2rem;
+    column-count: 3;
+  }
+}
+
+
+nav > h2 {
+  height: 0;
+  margin: 0; padding: 0;
+  overflow: hidden;
+}
+
+#internal > h2, #menu > h2, #useful-links > h2 {
+  background-color: inherit; color: transparent;
+}
